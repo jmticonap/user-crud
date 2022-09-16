@@ -1,0 +1,11 @@
+.header-app {
+    display: flex;
+    justify-content: space-between;
+    padding: 4rem 2rem 2rem 2rem;
+
+}
+
+.header-app__title {
+    font-size: 3rem;
+    color: black;
+}

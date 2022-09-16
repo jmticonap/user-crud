@@ -6,13 +6,16 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #FFF;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --background-card: white;
+  --color-card: black;
 }
 
 *{
@@ -24,5 +27,6 @@
 body {
   min-width: 320px;
   min-height: 100vh;
-  background-image: url('https://www.creativefabrica.com/wp-content/uploads/2019/01/Pattern-geometric-background-by-iop_micro.jpg');
+  
+  /* background-image: url('https://www.creativefabrica.com/wp-content/uploads/2019/01/Pattern-geometric-background-by-iop_micro.jpg'); */
 }
