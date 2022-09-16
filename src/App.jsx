@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import useUserDB from './hooks/useUserDB'
 
 import JHeader from './components/JHeader'
 import UsersForm from './components/UsersForm'
@@ -11,6 +12,10 @@ import { createTheme, ThemeProvider } from '@mui/material/styles'
 function App() {
     const [showForm, setShowForm] = useState(false)
     const [selectedUser, setSelectedUser] = useState(null)
+    const {
+        data: userList, 
+        setNewUser, 
+        saveUser} = useUserDB()
 
     return (
         <ThemeProvider theme={createTheme(buttonsTheme)} >
@@ -21,9 +26,11 @@ function App() {
                 {
                     showForm && <UsersForm
                         showHandler={setShowForm} 
-                        selectedUser={selectedUser} />
+                        selectedUser={selectedUser}
+                        saveHandler={saveUser} />
                 }
-                <UsersList 
+                <UsersList
+                    users={userList} 
                     selectedUserHandler={setSelectedUser}
                     showHandler={setShowForm}  />
             </div>

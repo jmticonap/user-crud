@@ -21,7 +21,7 @@ import CalendarIcon from '@mui/icons-material/CalendarToday'
 
 
 
-const UsersForm = ({ showHandler, selectedUser }) => {
+const UsersForm = ({ showHandler, selectedUser, saveHandler }) => {
     const [isEditting, setIsEditting] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
     const [values, setValues] = React.useState({
@@ -43,6 +43,19 @@ const UsersForm = ({ showHandler, selectedUser }) => {
     }
     const closeForm = evt => {
         if(evt.target.id === 'form_container') showHandler(false)
+    }
+
+    const save = () => {
+        if(isEditting){
+            // saveHandler({
+            //     id: 0,
+            //     user:values
+            // })
+        }else{
+            saveHandler({
+                user:values
+            })
+        }
     }
 
     useEffect(()=>{        
