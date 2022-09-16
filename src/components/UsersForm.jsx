@@ -32,6 +32,7 @@ const UsersForm = ({ showHandler, selectedUser, saveHandler }) => {
         birthday: ''
     });
 
+    const changeFistName = (prop, evt) => setValues({...values, [prop]: evt.target.value})
     const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
     }
@@ -107,12 +108,14 @@ const UsersForm = ({ showHandler, selectedUser, saveHandler }) => {
                         label='Name'
                         id='first_name'
                         type='text'
+                        onChange={evt=>changeFistName('first_name',evt)}
                         value={values.first_name} />
                     <TextField
                         required
                         label='Last name'
                         id='last_name'
                         type='text'
+                        onChange={evt=>changeFistName('last_name',evt)}
                         value={values.last_name} />
                     <TextField
                         required
@@ -120,6 +123,7 @@ const UsersForm = ({ showHandler, selectedUser, saveHandler }) => {
                         label='Email'
                         id='email'
                         type='email'
+                        onChange={evt=>changeFistName('email',evt)}
                         value={values.email} />
                     <FormControl variant="outlined">
                         <InputLabel
@@ -156,6 +160,7 @@ const UsersForm = ({ showHandler, selectedUser, saveHandler }) => {
                             required
                             id='birthday'
                             type='date'
+                            onChange={evt=>changeFistName('birthday',evt)}
                             value={values.birthday}
                             endAdornment={
                                 <InputAdornment position='end' >
