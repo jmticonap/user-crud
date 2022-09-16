@@ -2,8 +2,8 @@ import React from 'react';
 import './css/UsersList.css'
 import UserCard from './UserCard';
 
-const UsersList = ({ selectedUserHandler, showHandler, users }) => {
-    
+const UsersList = ({ selectedUserHandler, showHandler, users, deleteHandler }) => {
+
     const renderList = () => {
         if(users.length>0){
             return (users?.map(user => (
@@ -11,7 +11,8 @@ const UsersList = ({ selectedUserHandler, showHandler, users }) => {
                     key={user.id}
                     user={user}
                     selectedUserHandler={selectedUserHandler}
-                    showHandler={showHandler} />
+                    showHandler={showHandler}
+                    deleteHandler={deleteHandler} />
             )))
         }else{
             <h2>No users to show!</h2>
