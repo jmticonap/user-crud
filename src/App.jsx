@@ -15,7 +15,8 @@ function App() {
     const {
         data: userList, 
         setNewUser, 
-        saveUser} = useUserDB()
+        saveUser,
+        requestDelete} = useUserDB()
 
     return (
         <ThemeProvider theme={createTheme(buttonsTheme)} >
@@ -32,7 +33,8 @@ function App() {
                 <UsersList
                     users={userList} 
                     selectedUserHandler={setSelectedUser}
-                    showHandler={setShowForm}  />
+                    showHandler={setShowForm}
+                    deleteHandler={requestDelete}  />
             </div>
         </ThemeProvider>
     )

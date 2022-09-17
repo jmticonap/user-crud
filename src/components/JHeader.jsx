@@ -7,7 +7,7 @@ import AddIcon from '@mui/icons-material/Add'
 
 const JHeader = ({ showHandler, selectedUserHandler }) => {
 
-    const showHandlerForm = ()=>{
+    const showHandlerForm = () => {
         selectedUserHandler(null)
         showHandler(true)
     }

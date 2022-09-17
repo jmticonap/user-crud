@@ -28,8 +28,16 @@ const useUserDB = () => {
     const requestUpdate = (id, user) => {
         axios
             .put(`${serverUrl}${endPoint.update(id)}`, user)
+            .then(requestList)
             .catch(err => console.log(err))
     }
+    const requestDelete = id => {
+        axios
+            .delete(`${serverUrl}${endPoint.delete(id)}`)
+            .catch(err => console.log(err))
+        setData( data.filter(user => user.id != id) )
+    }
+
     const saveUser = obj => {
         if(obj.hasOwnProperty("id")){
             requestUpdate(obj.id, obj.user)
@@ -42,7 +50,7 @@ const useUserDB = () => {
         requestList()
     },[])
 
-    return {data, setNewUser, saveUser}
+    return {data, setNewUser, saveUser, requestDelete}
 };
 
 export default useUserDB;

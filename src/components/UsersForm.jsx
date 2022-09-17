@@ -19,8 +19,6 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import Visibility from '@mui/icons-material/Visibility'
 import CalendarIcon from '@mui/icons-material/CalendarToday'
 
-
-
 const UsersForm = ({ showHandler, selectedUser, saveHandler }) => {
     const [isEditting, setIsEditting] = useState(false)
     const [showPassword, setShowPassword] = useState(false) 
@@ -33,8 +31,7 @@ const UsersForm = ({ showHandler, selectedUser, saveHandler }) => {
     });
 
     const changeFistName = (prop, evt) => {
-        console.log(evt.target.value)
-        setValues({...values, [prop]: evt.target.value})
+        setValues({ ...values, [prop]: evt.target.value })
     }
     const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
@@ -51,17 +48,14 @@ const UsersForm = ({ showHandler, selectedUser, saveHandler }) => {
 
     const save = () => {
         if(isEditting){
-            // saveHandler({
-            //     id: 0,
-            //     user:values
-            // })
+            saveHandler({
+                id: selectedUser.id,
+               user:values
+             })
             showHandler(false)
         }else{
-            console.log(values)
             saveHandler(values)
             showHandler(false)
-
-            
         }
     }
 

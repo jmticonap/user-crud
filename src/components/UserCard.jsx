@@ -5,10 +5,9 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
 import RedeemIcon from '@mui/icons-material/Redeem'
 
-const UserCard = ({ user, selectedUserHandler, showHandler }) => {
+const UserCard = ({ user, selectedUserHandler, showHandler, deleteHandler }) => {
 
     const setSelectedUserHandler = () => {
-        console.log( user );
         selectedUserHandler(user)
         showHandler(true)
     }
@@ -28,11 +27,12 @@ const UserCard = ({ user, selectedUserHandler, showHandler }) => {
             </ul>
             <div className='user-card__actions'>
                 <Button 
+                    onClick={()=>deleteHandler(user['id'])}
                     variant='contained' 
                     color='jred'>
                     <DeleteIcon />
                 </Button>
-                <Button 
+                <Button
                     variant='contained' 
                     color='jwhite' 
                     onClick={setSelectedUserHandler}>
