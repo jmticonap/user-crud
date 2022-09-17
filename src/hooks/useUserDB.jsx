@@ -21,7 +21,8 @@ const useUserDB = () => {
     }
     const requestSave = (newUser) => {
         axios
-            .post(`${serverUrl}${endPoint.save}`,newUser)
+            .post(`${serverUrl}${endPoint.save}`, newUser)
+            .then(requestList)
             .catch(err => console.log(err))
     }
     const requestUpdate = (id, user) => {
@@ -33,7 +34,7 @@ const useUserDB = () => {
         if(obj.hasOwnProperty("id")){
             requestUpdate(obj.id, obj.user)
         }else{
-            requestSave(obj.user)
+            requestSave(obj)
         }
     }
 

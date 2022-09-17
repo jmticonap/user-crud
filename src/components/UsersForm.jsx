@@ -23,16 +23,19 @@ import CalendarIcon from '@mui/icons-material/CalendarToday'
 
 const UsersForm = ({ showHandler, selectedUser, saveHandler }) => {
     const [isEditting, setIsEditting] = useState(false)
-    const [showPassword, setShowPassword] = useState(false)
+    const [showPassword, setShowPassword] = useState(false) 
     const [values, setValues] = React.useState({
-        first_name: '',
-        last_name: '',
         email: '',
         password: '',
+        first_name: '',
+        last_name: '',
         birthday: ''
     });
 
-    const changeFistName = (prop, evt) => setValues({...values, [prop]: evt.target.value})
+    const changeFistName = (prop, evt) => {
+        console.log(evt.target.value)
+        setValues({...values, [prop]: evt.target.value})
+    }
     const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
     }
@@ -52,10 +55,13 @@ const UsersForm = ({ showHandler, selectedUser, saveHandler }) => {
             //     id: 0,
             //     user:values
             // })
+            showHandler(false)
         }else{
-            saveHandler({
-                user:values
-            })
+            console.log(values)
+            saveHandler(values)
+            showHandler(false)
+
+            
         }
     }
 
@@ -176,7 +182,11 @@ const UsersForm = ({ showHandler, selectedUser, saveHandler }) => {
                     <Button
                         color='blue'
                         variant='contained'
-                        sx={{ width: '100%' }}>{isEditting ? 'Save changes' : 'Add new user'}</Button>
+                        sx={{ width: '100%' }}
+                        onClick={save}
+                    >
+                            {isEditting ? 'Save changes' : 'Add new user'}
+                    </Button>
                 </CardActions>
             </Card>
 

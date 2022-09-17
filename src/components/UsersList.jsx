@@ -14,10 +14,10 @@ const UsersList = ({ selectedUserHandler, showHandler, users }) => {
                     showHandler={showHandler} />
             )))
         }else{
-            <h2>No users to show!</h2>
+            return <h2>No users to show!</h2>
         }
     }
-
+    
     return (
         <div className='users-list'>
             {
